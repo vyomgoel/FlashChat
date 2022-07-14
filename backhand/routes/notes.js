@@ -17,12 +17,14 @@ try {
 
 //ROUTE 2: ADD A NEW NOTE USING POST "/api/notes/getuser" LOGIN REQUIRED
 router.post(
-  "/fetchallnotes",
+  "/addnote",
   fetchuser,
   [
     body("title", "Enter a valid name").isLength({ min: 3 }),
-    body("description", "Description must be 5 characters").isLength({ min: 3 }),
-    body("tag","Enter a valid tag" ).isLength({
+    body("description", "Description must be 5 characters").isLength({
+      min: 3,
+    }),
+    body("tag", "Enter a valid tag").isLength({
       min: 3,
     }),
   ],
