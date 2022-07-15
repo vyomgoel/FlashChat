@@ -1,13 +1,37 @@
-import React from "react";
+import { React, useState } from "react";
 
 const Login = () => {
+  const [credentials, setCredentials] = useState({ email: "", password: "" });
+
+  const handleClick = async (e) => {
+    e.preventDefault();
+    const response = await fetch(`http://localhost:5000/api/auth/login`, {
+      method: "POST",
+
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: credentials.email,
+        password: credentials.password,
+      }),
+    });
+    const json = await response.json();
+    console.log(json);
+  };
+  const onChange = (e) => {
+    setCredentials({ ...credentials, [e.target.name]: e.target.value });
+  };
+
   return (
     <div>
       <>
-        <form>
-          <div class="mb-3">
-            <label for="email">Email address</label>
+        <form onSubmit={handleClick}>
+          <div className="mb-3">
+            <label htmlFor="email">Email address</label>
             <input
+              value={credentials.email}
+              onChange={onChange}
               type="email"
               class="form-control"
               id="exampleInputEmail1"
@@ -19,9 +43,11 @@ const Login = () => {
               We'll never share your email with anyone else.
             </small>
           </div>
-          <div class="mb-3">
-            <label for="password">Password</label>
+          <div className="mb-3">
+            <label htmlFor="password">Password</label>
             <input
+              value={credentials.password}
+              onChange={onChange}
               type="password"
               class="form-control"
               id="exampleInputPassword1"
@@ -30,7 +56,7 @@ const Login = () => {
             />
           </div>
 
-          <button type="submit" class="btn btn-primary" onSubmit={}>
+          <button type="submit" class="btn btn-primary">
             Submit
           </button>
         </form>
