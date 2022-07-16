@@ -20,10 +20,11 @@ function App() {
             <Home />
 
             <Routes>
-              <Route exact path="/" />
-              <Route exact path="/about" element={<About />}></Route>
-              <Route exact path="/login" element={<Login />}></Route>
-              <Route exact path="/login" element={<Signup />}></Route>
+              <Route path="/">
+                <Route exact path="/about" element={<About />} />
+                <Route exact path="/login" element={<Login />} />
+                <Route exact path="/signup" element={<Signup />} />
+              </Route>
             </Routes>
           </div>
         </BrowserRouter>

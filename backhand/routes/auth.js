@@ -43,7 +43,8 @@ router.post(
         user: user.id,
       };
       const authtoken = jwt.sign(data, JWT_SECRET);
-      res.json({ authtoken });
+      const success = true;
+      res.json({ success, authtoken });
     } catch (error) {
       console.log(error.message);
       res.status(500).send("Some Error OCCURED");
@@ -59,6 +60,7 @@ router.post(
     body("password", "Password cannot").exists(),
   ],
   async (req, res) => {
+    let success = false;
     //If there are arrors return bad request and the errors.
     //The req. body object allows you to access data in a string or JSON object from the client side.
 
@@ -71,6 +73,7 @@ router.post(
     try {
       let user = await User.findOne({ email });
       if (!user) {
+        success = false;
         return res
           .status(400)
           .json({ error: "Try to connect with correct Credentials" });
@@ -78,15 +81,17 @@ router.post(
 
       const passwordCompare = await bcrypt.compare(password, user.password);
       if (!passwordCompare) {
+        let success = false;
         return res
           .status(400)
-          .json({ error: "Try to connect with correct Credentials" });
+          .json({ success, error: "Try to connect with correct Credentials" });
       }
       const data = {
         id: user.id,
       };
       const authtoken = jwt.sign(data, JWT_SECRET);
-      res.json({ authtoken });
+      let success = true;
+      res.json({ success, authtoken });
     } catch (error) {
       console.log(error.message);
       res.status(500).send("Internel Server Error Occured");
