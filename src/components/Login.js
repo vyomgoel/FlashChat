@@ -1,6 +1,6 @@
 import { React, useState } from "react";
 import { useNavigate } from "react-router-dom";
-const Login = () => {
+const Login = (props) => {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
   let navigate = useNavigate();
 
@@ -23,8 +23,9 @@ const Login = () => {
       // save the auth token and redirect
       localStorage.setItem("token", json.authtoken);
       navigate("/");
+      props.showAlert("Logged in Successfully", "success");
     } else {
-      alert("Invalid Credentials");
+      props.showAlert("Invalid Details", "danger");
     }
   };
   const onChange = (e) => {
@@ -32,43 +33,43 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <>
-        <form onSubmit={handleClick}>
-          <div className="mb-3">
-            <label htmlFor="email">Email address</label>
-            <input
-              value={credentials.email}
-              onChange={onChange}
-              type="email"
-              class="form-control"
-              id="exampleInputEmail1"
-              name="email"
-              aria-describedby="emailHelp"
-              placeholder="Enter email"
-            />
-            <small id="emailHelp" class="form-text text-muted">
-              We'll never share your email with anyone else.
-            </small>
-          </div>
-          <div className="mb-3">
-            <label htmlFor="password">Password</label>
-            <input
-              value={credentials.password}
-              onChange={onChange}
-              type="password"
-              class="form-control"
-              id="exampleInputPassword1"
-              name="password"
-              placeholder="Password"
-            />
-          </div>
+    <div className="mt-2">
+      <h2>Login to continue to INotebook</h2>
 
-          <button type="submit" class="btn btn-primary">
-            Submit
-          </button>
-        </form>
-      </>
+      <form onSubmit={handleClick}>
+        <div className="mb-3">
+          <label htmlFor="email">Email address</label>
+          <input
+            value={credentials.email}
+            onChange={onChange}
+            type="email"
+            class="form-control"
+            id="exampleInputEmail1"
+            name="email"
+            aria-describedby="emailHelp"
+            placeholder="Enter email"
+          />
+          <small id="emailHelp" class="form-text text-muted">
+            We'll never share your email with anyone else.
+          </small>
+        </div>
+        <div className="mb-3">
+          <label htmlFor="password">Password</label>
+          <input
+            value={credentials.password}
+            onChange={onChange}
+            type="password"
+            class="form-control"
+            id="exampleInputPassword1"
+            name="password"
+            placeholder="Password"
+          />
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+          Submit
+        </button>
+      </form>
     </div>
   );
 };

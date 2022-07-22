@@ -41,7 +41,7 @@ router.post(
         tag,
         user: req.id,
       });
-      const savedNote = note.save();
+      const savedNote = await note.save();
       console.log("saved note", savedNote);
       res.json(savedNote);
     } catch (error) {
