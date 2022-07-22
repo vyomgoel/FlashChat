@@ -22,7 +22,7 @@ const AddNote = (props) => {
   return (
     <>
       <div className="container my-3">
-        <h2>Add a Note</h2>
+        <h2>Add a FlashCard</h2>
         <form className="my-3">
           <div className="mb-3">
             <label htmlFor="title" className="form-label">
@@ -74,7 +74,7 @@ const AddNote = (props) => {
             className="btn btn-primary"
             onClick={handleClick}
           >
-            Add Note
+            Add FlashCard
           </button>
         </form>
       </div>

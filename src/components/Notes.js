@@ -70,7 +70,7 @@ const Notes = (props) => {
           <div className="modal-content">
             <div className="modal-header">
               <h5 className="modal-title" id="exampleModalLabel">
-                Edit Note
+                Edit FlashCard
               </h5>
               <button
                 type="button"
@@ -144,7 +144,7 @@ const Notes = (props) => {
                 type="button"
                 className="btn btn-primary"
               >
-                Update Note
+                Update FlashCard
               </button>
             </div>
           </div>
@@ -152,7 +152,7 @@ const Notes = (props) => {
       </div>
 
       <div className=" row my-3">
-        <h2>Your Notes</h2>
+        <h2>Your FlashCards</h2>
         <div className="container mx-2">
           {notes.length === 0 && "No note to display"}
         </div>

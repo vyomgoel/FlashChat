@@ -38,7 +38,7 @@ const NoteState = (props) => {
       console.log("add note response", response);
       const note = await response.json();
       console.log("add note api", note);
-      console.log(json);
+
       setNotes(notes.concat([note]));
       console.log("Notes", notes);
     } catch (e) {
