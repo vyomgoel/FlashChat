@@ -1,18 +1,17 @@
 const express = require("express");
 const router = express.Router();
 const { body, validationResult } = require("express-validator");
-const Notes = require("../models/Note");
 const Note = require("../models/Note");
 var fetchuser = require("../middleware/fetchuser");
 //ROUTE 1:  GET ALL THE NOTES USING GET "/api/notes/getuser"
 try {
   router.get("/fetchallnotes", fetchuser, async (req, res) => {
-    const notes = await Notes.find({ user: req.id });
+    const notes = await Note.find({ user: req.id });
     res.json(notes);
   });
 } catch (error) {
   console.log(error.message);
-  res.status(500).send("Internel Server Error Occured");
+  // res.status(500).send("Internel Server Error Occured");
 }
 
 //ROUTE 2: ADD A NEW NOTE USING POST "/api/notes/getuser" LOGIN REQUIRED

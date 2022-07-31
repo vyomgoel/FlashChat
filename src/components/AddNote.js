@@ -26,7 +26,7 @@ const AddNote = (props) => {
         <form className="my-3">
           <div className="mb-3">
             <label htmlFor="title" className="form-label">
-              title
+              Title
             </label>
             <input
               type="text"
@@ -42,7 +42,7 @@ const AddNote = (props) => {
           </div>
           <div className="mb-3">
             <label htmlFor="description" className="form-label">
-              description
+              Description
             </label>
             <input
               type="text"
@@ -55,7 +55,7 @@ const AddNote = (props) => {
               value={note.description}
             />
           </div>
-          <div className="mb-3">
+          {/* <div className="mb-3">
             <label htmlFor="tag" className="form-label">
               Tag
             </label>
@@ -67,7 +67,7 @@ const AddNote = (props) => {
               onChange={onChange}
               value={note.tag}
             />
-          </div>
+          </div> */}
 
           <button
             type="submit"

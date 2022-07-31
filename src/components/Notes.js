@@ -112,7 +112,7 @@ const Notes = (props) => {
                     required
                   />
                 </div>
-                <div className="mb-3">
+                {/* <div className="mb-3">
                   <label htmlFor="tag" className="form-label">
                     Tag
                   </label>
@@ -124,7 +124,7 @@ const Notes = (props) => {
                     value={note.etag}
                     onChange={onChange}
                   />
-                </div>
+                </div> */}
               </form>
             </div>
             <div className="modal-footer">

@@ -34,7 +34,7 @@ const Login = (props) => {
 
   return (
     <div className="mt-2">
-      <h2>Login to continue to INotebook</h2>
+      <h2>Login to continue to FlashChat</h2>
 
       <form onSubmit={handleClick}>
         <div className="mb-3">

@@ -12,6 +12,7 @@ const Signup = (props) => {
   const handleClick = async (e) => {
     e.preventDefault();
     const { name, email, password } = credentials;
+    console.log(credentials);
     const response = await fetch(`http://localhost:5000/api/auth/createuser`, {
       method: "POST",
 
@@ -41,29 +42,31 @@ const Signup = (props) => {
   return (
     <>
       <div className="container mt-3">
-        <h2>Create an acount to use INotebook</h2>
+        <h2>Create an acount to use FlashChat</h2>
         <form onSubmit={handleClick}>
           <div className="form-group">
-            <label htmlFor="email">Name</label>
+            <label htmlFor="name">Name</label>
             <input
+              value={credentials.name}
               type="text"
               className="form-control"
-              id="exampleInputEmail1"
+              id="name"
               aria-describedby="emailHelp"
               placeholder="Enter email"
-              onChnage={onChange}
+              onChange={onChange}
               name="name"
             />
           </div>
           <div className="form-group">
             <label htmlFor="email">Email</label>
             <input
+              value={credentials.email}
               type="text"
               className="form-control"
-              id="name"
+              id="email"
               aria-describedby="emailHelp"
               placeholder="Enter email"
-              onChnage={onChange}
+              onChange={onChange}
               name="email"
             />
             <small id="emailHelp" className="form-text text-muted">
@@ -73,22 +76,24 @@ const Signup = (props) => {
           <div className="form-group">
             <label htmlFor="password">Password</label>
             <input
+              value={credentials.password}
               type="password"
               className="form-control"
               id="password"
               placeholder="Password"
-              onChnage={onChange}
+              onChange={onChange}
               name="password"
             />
           </div>
           <div className="form-group">
             <label htmlFor="cpassword">Confirm Password</label>
             <input
+              value={credentials.cpassword}
               type="password"
               className="form-control"
-              id="password"
+              id="cpassword"
               placeholder="Password"
-              onChnage={onChange}
+              onChange={onChange}
               name="cpassword"
             />
           </div>

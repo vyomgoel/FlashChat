@@ -12,7 +12,14 @@ app.use(express.json());
 // Available Routes
 app.use("/api/auth", require("./routes/auth"));
 app.use("/api/notes", require("./routes/notes"));
+app.use("/api/users", require("./routes/users"));
+
+app.use("/api/folder", require("./routes/folder"));
+
+app.use("/api/userchat", require("./routes/userchat"));
+app.use("/api/chat", require("./routes/chat"));
+app.use("/api/contact", require("./routes/contact"));
 
 app.listen(port, () => {
-  console.log(`Inotebook backend listening at http://localhost:${port}`);
+  console.log(`FlashChat backend listening at http://localhost:${port}`);
 });

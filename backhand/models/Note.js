@@ -22,6 +22,10 @@ const NotesSchema = new Schema({
     type: Date,
     default: Date.now, //mongoose ensure this build is required. Required ofrces it.
   },
+  folderId: {
+    type: String,
+    //mongoose ensure this build is required. Required ofrces it.
+  },
 });
 
 module.exports = mongoose.model("notes", NotesSchema);

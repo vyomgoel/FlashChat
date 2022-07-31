@@ -1,14 +1,11 @@
-import { React, useState } from "react";
+import { React } from "react";
+import UserChats from "../components/UserChats";
 
-import Notes from "./Notes";
 export const Home = (props) => {
-  const { showAlert } = props;
   return (
-    <>
-      <div>
-        <Notes showAlert={showAlert} />
-      </div>
-    </>
+    <div>
+      <UserChats />
+    </div>
   );
 };
 

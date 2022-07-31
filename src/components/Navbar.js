@@ -14,7 +14,7 @@ const Navbar = () => {
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark text-justify">
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
-          Navbar
+          FlashChat
         </Link>
         <button
           className="navbar-toggler"
@@ -29,25 +29,41 @@ const Navbar = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item">
-              <Link
-                className={`nav-link ${
-                  location.pathname === "/" ? "active" : ""
-                }`}
-                aria-current="page"
-                to="/"
-              >
+            <li
+              className={`nav-link ${
+                location.pathname === "/" ? "active" : ""
+              }`}
+            >
+              <Link className="nav-link" to="/">
                 Home
               </Link>
             </li>
 
-            <li
+            {/* <li
               className={`nav-link ${
                 location.pathname === "/about" ? "active" : ""
               }`}
             >
               <Link className="nav-link" to="/about">
                 About
+              </Link>
+            </li> */}
+            <li
+              className={`nav-link ${
+                location.pathname === "/flashcards" ? "active" : ""
+              }`}
+            >
+              <Link className="nav-link" to="/flashcards">
+                FlashCards
+              </Link>
+            </li>
+            <li
+              className={`nav-link ${
+                location.pathname === "/contacts" ? "active" : ""
+              }`}
+            >
+              <Link className="nav-link" to="/Contacts">
+                Contact List
               </Link>
             </li>
           </ul>
