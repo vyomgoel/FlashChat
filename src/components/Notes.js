@@ -40,7 +40,6 @@ const Notes = (props) => {
     console.log("Updating the note...", note);
     editNote(note.id, note.etitle, note.edescription, note.etag);
     refClose.current.click();
-    props.showAlert("Updated successfully", "success");
   };
 
   const onChange = (e) => {

@@ -5,28 +5,14 @@ const AddChat = (props) => {
   const context = useContext(chatContext);
   const { addChat } = context;
   const [chat, setchat] = useState({
-    fromusername: "",
-    fromuserid: "",
     message: "",
-    tousername: "",
-    touserid: "",
   });
   const handleClick = (e) => {
     e.preventDefault();
     console.log("chat", chat);
-    addChat(
-      chat.fromusername,
-      chat.fromuserid,
-      chat.message,
-      chat.tousername,
-      chat.touserid
-    );
+    addChat(chat.message);
     setchat({
-      fromusername: "",
-      fromuserid: "",
       message: "",
-      tousername: "",
-      touserid: "",
     });
     props.showAlert("chat Added", "success");
   };

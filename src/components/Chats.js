@@ -34,48 +34,6 @@ const Chats = (props) => {
 
   return (
     <>
-      <button
-        ref={ref}
-        type="button"
-        className="btn btn-primary d-none"
-        data-bs-toggle="modal"
-        data-bs-target="#exampleModal"
-      >
-        Launch demo modal
-      </button>
-      <div
-        className="modal fade"
-        id="exampleModal"
-        tabIndex="-1"
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
-      >
-        <div className="modal-dialog">
-          <div className="modal-content">
-            <div className="modal-header">
-              <div className="modal-body">
-                <form className="my-3">
-                  <div className="mb-3">
-                    <label htmlFor="title" className="form-label">
-                      Username
-                    </label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      username="username"
-                      minLength={2}
-                      required
-                      value={Chats.username}
-                      onChange={onChange}
-                    />
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
       <div className="row">
         <h2>Your Chats</h2>
 
